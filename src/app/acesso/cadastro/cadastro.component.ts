@@ -1,11 +1,12 @@
 import { Component, OnInit, EventEmitter, Output} from '@angular/core';
 import {FormGroup, FormControl} from '@angular/forms'
 import {Usuario} from '../usuario.model'
+import { Auth } from '../../auth.service';
 
 @Component({
   selector: 'app-cadastro',
   templateUrl: './cadastro.component.html',
-  styleUrls: ['./cadastro.component.css']
+  styleUrls: ['./cadastro.component.css'],
 })
 export class CadastroComponent implements OnInit {
 
@@ -16,7 +17,9 @@ export class CadastroComponent implements OnInit {
     'senha': new FormControl(null),
   })
 
-  constructor() { }
+  constructor(
+    public auth:Auth
+  ) { }
 
   @Output() public exibirLogin: EventEmitter<string> = new EventEmitter<string>()
 
@@ -35,9 +38,7 @@ export class CadastroComponent implements OnInit {
       this.formulario.value.senha
     )
 
-    console.log(usuario)
-
-
+    this.auth.cadastroDeUsuario(usuario)
   }
 
 }
