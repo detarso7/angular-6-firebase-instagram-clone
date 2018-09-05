@@ -6,7 +6,13 @@ export class Auth{
 
         fb.auth().createUserWithEmailAndPassword(usuario.email, usuario.senha)
         .then((resposta:any) => {
-            console.log(resposta)
+
+            //Deletar a senha antes de enviar para o banco de dados
+            delete usuario.senha
+
+            //Enviando dados cmplementares do usuário no path email na base64
+            fb.database().ref(`usuario_detalhe/${btoa(usuario.email)}`)
+            .set(usuario)
         })
         .catch((err:any)=>{
             console.log(err)

@@ -12,12 +12,12 @@ export class AppComponent {
   ngOnInit():void{
 
     var config = {
-      apiKey: "AIzaSyDHynHmkdmfopsdv*IJVkmdkv89ijKVMd8ivJ(Iv",
+      apiKey: "AIzaSyDHynHLpuGEEhol7jJN1ehU1HtKW264xe8",
       authDomain: "jta-instagram-clone-c5308.firebaseapp.com",
-      databaseURL: "https://firebaseio.com",
-      projectId: "",
-      storageBucket: "appspot.com",
-      messagingSenderId: "8764568283230347236"
+      databaseURL: "https://jta-instagram-clone-c5308.firebaseio.com",
+      projectId: "jta-instagram-clone-c5308",
+      storageBucket: "jta-instagram-clone-c5308.appspot.com",
+      messagingSenderId: "876828303476"
     };
 
     fb.initializeApp(config)
