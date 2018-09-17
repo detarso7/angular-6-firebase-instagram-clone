@@ -18,4 +18,10 @@ export class Auth{
             console.log(err)
         })
     }
+
+    public autenticar(email:string, senha:string):void{
+        fb.auth().signInWithEmailAndPassword(email, senha)
+        .then((resposta: any) => console.log(resposta))
+        .catch((err:any)=> console.log(err))
+    }
 }
