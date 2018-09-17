@@ -2,9 +2,9 @@ import { Usuario } from "./acesso/usuario.model";
 import * as fb from "firebase"
 
 export class Auth{
-    public cadastroDeUsuario(usuario:Usuario):void{
+    public cadastroDeUsuario(usuario:Usuario):Promise<any>{
 
-        fb.auth().createUserWithEmailAndPassword(usuario.email, usuario.senha)
+       return fb.auth().createUserWithEmailAndPassword(usuario.email, usuario.senha)
         .then((resposta:any) => {
 
             //Deletar a senha antes de enviar para o banco de dados
