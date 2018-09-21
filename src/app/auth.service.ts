@@ -1,9 +1,15 @@
 import { Usuario } from "./acesso/usuario.model";
 import * as fb from "firebase"
+import { Injectable } from "@angular/core";
+import { Router } from "@angular/router";
 
+
+@Injectable()
 export class Auth{
 
     public token_id: string
+
+    constructor(private router: Router){}
 
     public cadastroDeUsuario(usuario:Usuario):Promise<any>{
 
@@ -28,6 +34,7 @@ export class Auth{
             fb.auth().currentUser.getIdToken()
             .then((inToken)=>{
                 this.token_id = inToken
+                this.router.navigate(['/home'])
             })
         })
         .catch((err:any)=> console.log(err))
